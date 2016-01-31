@@ -1,0 +1,60 @@
+<template name="homepage">
+
+	<div class="col-md-12">
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget">
+					<div class="widget-header">
+						<div class="title">
+							<span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span> Recent Sales
+						</div>
+					</div>
+					<div class="widget-body">
+						<div id="dt_example" class="example_alt_pagination">
+							<table class="table table-condensed table-striped table-hover table-bordered pull-left" id="data-table">    
+								<thead>
+									<tr>
+										<th style="width:15%">Product Title</th>
+										<th style="width:15%">Buyers Name</th>
+										<th style="width:15%">Address</th>
+										<th style="width:15%" class="hidden-phone">Contact</th>
+										<th style="width:15%" class="">Quantity Sold</th>
+										<th style="width:15%" class="">Revenue</th>
+										<th style="width:15%" class="">Profit</th>
+										<th style="width:10%" class="">Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									{{#each sales}}
+									<tr class="gradeX">
+										<td>{{product_title}}</td>
+										<td>{{customer_name}}</td>
+										<td>{{customer_address}}</td>		
+										<td class="hidden-phone">{{customer_phone}}</td>
+										<td class="hidden-phone">{{quantity_sold}}</td>
+										<td class="hidden-phone">{{revenue}}</td>
+										<td class="hidden-phone">{{profit}}</td>
+										<td class="hidden-phone">
+											<a href="#" class="actions-icons">
+												<img src="img/edit-icon.png" alt="edit" class="icons">
+											</a>
+											<a href="#" class="delete-row" data-original-title="Delete">
+												<img src="img/trash-icon.png" alt="trash">
+											</a>
+										</td>
+									</tr>
+									{{/each}}
+									
+								</tbody>
+							</table>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</template>

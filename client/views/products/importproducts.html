@@ -1,0 +1,135 @@
+<template name="importproducts">
+<!-- 
+<div class="col-md-12">
+	<form id="form">
+		<div class="widget">
+		  <div class="widget-header">
+		    <div class="title">
+		      <span class="fs1" aria-hidden="true" data-icon=""></span> Block Level Button
+		    </div>
+		  </div>
+		  <div class="widget-body">
+		  	<div class="row">
+		      <div class="col-md-4 col-sm-4">
+		        
+		      </div>
+		      <div class="col-md-4 col-sm-4">
+		      		<input type="text" id="keywords" class="form-control keywords" placeholder="Mots Clefs">
+		      </div>
+		      <div class="col-md-4 col-sm-4">
+		        
+		      </div>
+		    </div>
+		    <div class="row">
+		      <div class="col-md-4 col-sm-4">
+		        
+		      </div>
+		      <div class="col-md-4 col-sm-4">
+		      		<button data-toggle="modal" href="#showModal" type="button" class="btn btn-success btn-block" data-original-title="" title="">New search</button>
+		      </div>
+		      <div class="col-md-4 col-sm-4">
+		        
+		      </div>
+		    </div>
+		  </div>
+
+		</div>
+	</form>
+</div> -->
+
+
+<div class="col-md-12">
+
+
+	<h1>Ajouter un nouveau produit</h1>
+	<form id="form">
+
+		<div class="form-group">
+			<label class="control-label" for="name">Mots Clefs</label>  
+			<input type="text" id="keywords" class="form-control keywords">
+
+		</div>
+
+		<div class="form-group">
+			<label class="control-label" for="name">A partir de</label>
+			<input type="text" id="from" class="form-control selling-price">
+			<label class="control-label" for="name">Jusqu'à</label>
+			<input type="text" id="to" class="form-control buying-price">
+
+		</div>
+
+		<div class="form-group">
+
+
+		</div>
+
+
+		<button type="submit" class="btn btn-success">Ajouter</button>
+	</form>
+</div>
+
+{{#if hasResults}}
+<div class="col-md-12">
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="widget">
+				<div class="widget-header">
+					<div class="title">
+						<span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span> Products
+					</div>
+				</div>
+				<div class="widget-body">
+					<div id="dt_example" class="example_alt_pagination">
+						<table class="table table-condensed table-striped table-hover table-bordered pull-left" id="dataTable">    
+							<thead>
+								<tr>
+									<th style="width:15%">Product Title</th>
+									<th style="width:10%">Product Picture</th>
+									<th style="width:15%">Price</th>
+									<th style="width:15%">Rating</th>
+									<th style="width:15%" class="hidden-phone">Import</th>
+									<!-- <th style="width:15%" class="">Quantity Sold</th>
+									<th style="width:15%" class="">Revenue</th>
+									<th style="width:15%" class="">Profit</th>
+									<th style="width:10%" class="">Actions</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								{{#each results}}
+								<tr class="gradeX productParent">
+									<td class="product-title">{{productTitle}}</td>
+									<td class="product-url"><a href="{{productUrl}}" target="_blank"><img src="{{imageUrl}}" width="50" height="50"/></a></td>
+									<td class="sale-price">{{salePrice}}</td>		
+									<td class="raing">{{evaluateScore}}</td>		
+									<td class="hidden-phone">
+										<button type="button" class="btn btn-xs btn-success saveProduct" data-original-title="" title="">Save the product</button>
+										<button type="button" class="btn btn-xs btn-success showVariations" data-original-title="" title="">Variations</button>
+									</td>
+									<!-- <td class="hidden-phone">{{quantity_sold}}</td>
+									<td class="hidden-phone">{{revenue}}</td>
+									<td class="hidden-phone">{{profit}}</td>
+									<td class="hidden-phone">
+										<a href="#" class="actions-icons">
+											<img src="img/edit-icon.png" alt="edit" class="icons">
+										</a>
+										<a href="#" class="delete-row" data-original-title="Delete">
+											<img src="img/trash-icon.png" alt="trash">
+										</a>
+									</td> -->
+								</tr>
+								{{/each}}
+								
+							</tbody>
+						</table>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+{{/if}}
+
+</template>

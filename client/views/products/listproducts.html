@@ -1,0 +1,181 @@
+<template name="listproducts">
+
+	<div class="col-md-12">
+		{{#if hasExportSession}}
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget">
+					<div class="widget-header">
+						<div class="title">
+							<span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span> Products ready for export
+						</div>
+					</div>
+					<div class="widget-body">
+						<div class="example_alt_pagination">
+							<table class="table table-condensed table-striped table-hover table-bordered pull-left" id="dataTableExport">    
+								<thead>
+									<tr>
+										<th style="width:15%">Product Title</th>
+										<th style="width:10%">Product Picture</th>
+										<th style="width:5%">Buy Price</th>
+										<th style="width:5%">Sell Price</th>
+										<th style="width:5%">Shipping</th>
+										<th style="width:5%">Quantity</th>
+										<th style="width:5%">Item Type</th>
+										<th style="width:15%">Item Spec</th>
+										<th style="width:15%">Description</th>
+										<th style="width:15%" class="hidden-phone">Import</th>
+									<!-- <th style="width:15%" class="">Quantity Sold</th>
+									<th style="width:15%" class="">Revenue</th>
+									<th style="width:15%" class="">Profit</th>
+									<th style="width:10%" class="">Actions</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								{{#each newExportSession}}
+								<tr class="gradeX productParent" data-id="{{_id}}">
+									<td data-key="product_title" data-type="textarea" data-placeholder="Enter text" data-rows="3" class="product-title editable-export">{{product_title}}</td>
+									<td class="product-url">
+										{{#each product_image}}
+										<a href="{{../product_url}}" target="_blank"><img src="{{this}}" width="50" height="50"/></a>
+										{{/each}}
+									</td>
+									<td class="buy-price">{{buy_price}}</td>		
+									<td data-key="sell_price" data-type="textarea" data-placeholder="Enter text" data-rows="2" class="sell-price editable-export">
+										{{sell_price}}
+									</td>
+									<td data-key="shipping" data-type="textarea" data-placeholder="Enter text" data-rows="2" class="shipping editable-export">
+										{{shipping}}
+									</td>
+									<td data-key="quantity" data-type="textarea" data-placeholder="Enter text" data-rows="2" class="quantity editable-export">
+										{{quantity}}
+
+									</td>			
+									<td data-key="product_type" data-type="textarea" data-placeholder="Enter text" data-rows="2"  class="product-type editable-export">{{product_type}}</td>		
+									<td data-key="item_specifics" data-type="textarea" data-placeholder="Enter text" data-rows="2"  class="item-specs editable-export">{{item_specifics}}</td>		
+									<td data-key="description" data-type="textarea" data-placeholder="Enter text" data-rows="2"  class="description editable-export">{{description}}</td>		
+									<!-- <td class="sale-price">{{evaluateScore}}</td>		 -->
+									<td class="hidden-phone">
+										<!-- <button type="button" class="btn btn-xs btn-success saveProduct" data-original-title="" title="">Save the product</button> -->
+										<button type="button" class="btn btn-xs btn-danger deleteFromExport" data-original-title="" title="">Delete from list</button>
+									</td>
+									<!-- <td class="hidden-phone">{{quantity_sold}}</td>
+									<td class="hidden-phone">{{revenue}}</td>
+									<td class="hidden-phone">{{profit}}</td>
+									<td class="hidden-phone">
+										<a href="#" class="actions-icons">
+											<img src="img/edit-icon.png" alt="edit" class="icons">
+										</a>
+										<a href="#" class="delete-row" data-original-title="Delete">
+											<img src="img/trash-icon.png" alt="trash">
+										</a>
+									</td> -->
+								</tr>
+								{{/each}}
+								
+							</tbody>
+						</table>
+						<div class="clearfix"></div>
+						</div>
+						<div class="pull-right ">
+							<button type="button" class="btn btn-primary iofferExport" data-original-title="" title="">Export iOffer</button>
+							<div class="downloadable"></div>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+
+		</div>
+		{{/if}}
+		<div class="row">
+			<div class="col-md-12">
+				<div class="widget">
+					<div class="widget-header">
+						<div class="title">
+							<span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span> All products
+						</div>
+					</div>
+					<div class="widget-body">
+						<div id="dt_example" class="example_alt_pagination">
+							<table class="table table-condensed table-striped table-hover table-bordered pull-left" id="dataTable">    
+								<thead>
+									<tr>
+										<th style="width:15%">Product Title</th>
+										<th style="width:10%">Product Picture</th>
+										<th style="width:5%">Buy Price</th>
+										<th style="width:5%">Sell Price</th>
+										<th style="width:5%">Shipping</th>
+										<th style="width:5%">Quantity</th>
+										<th style="width:5%">Item Type</th>
+										<th style="width:15%">Description</th>
+										<th style="width:15%">Item Spec</th>
+										<th style="width:15%" class="hidden-phone">Import</th>
+									<!-- <th style="width:15%" class="">Quantity Sold</th>
+									<th style="width:15%" class="">Revenue</th>
+									<th style="width:15%" class="">Profit</th>
+									<th style="width:10%" class="">Actions</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								{{#each results}}
+								<tr class="gradeX productParent" data-id="{{_id}}">
+									<td data-key="product_title" data-type="textarea" data-placeholder="Enter text" data-rows="3" class="product-title editable">{{product_title}}</td>
+									<td class="product-url">
+										{{#each product_image}}
+										<a href="{{../product_url}}" target="_blank"><img src="{{this}}" width="50" height="50"/></a>
+										{{/each}}
+									</td>
+									<td class="buy-price">{{buy_price}}</td>		
+									<td data-key="sell_price" data-type="textarea" data-placeholder="Enter text" data-rows="2" class="sell-price editable">
+										{{sell_price}}
+									</td>
+									<td data-key="shipping" data-type="textarea" data-placeholder="Enter text" data-rows="2" class="shipping editable">
+										{{shipping}}
+									</td>
+									<td data-key="quantity" data-type="textarea" data-placeholder="Enter text" data-rows="2" class="quantity editable">
+										{{quantity}}
+
+									</td>			
+									<td data-key="product_type" data-type="textarea" data-placeholder="Enter text" data-rows="2"  class="product-type editable">{{product_type}}</td>		
+									<td data-key="description" data-type="textarea" data-placeholder="Enter text" data-rows="2"  class="description editable">{{description}}</td>		
+									<td data-key="item_specifics" data-type="textarea" data-placeholder="Enter text" data-rows="2"  class="item-specs editable">{{item_specifics}}</td>
+
+									<!-- <td class="sale-price">{{evaluateScore}}</td>		 -->
+									<td class="hidden-phone">
+										<!-- <button type="button" class="btn btn-xs btn-success saveProduct" data-original-title="" title="">Save the product</button> -->
+										<button type="button" class="btn btn-xs btn-success getVariations" data-original-title="" title="">Variations</button>
+										{{#if imageDownloaded 1}}
+											<button type="button" class="btn btn-xs btn-success addToExport" data-original-title="" title="">Export</button>
+										{{/if}}	
+										{{#if imageDownloaded 0}}
+												<button type="button" class="btn btn-xs btn-success getImages" data-original-title="" title="">Get Images</button>
+										{{/if}}
+										<button type="button" class="btn btn-xs btn-danger deleteProduct" data-original-title="" title="">Delete</button>
+									</td>
+									<!-- <td class="hidden-phone">{{quantity_sold}}</td>
+									<td class="hidden-phone">{{revenue}}</td>
+									<td class="hidden-phone">{{profit}}</td>
+									<td class="hidden-phone">
+										<a href="#" class="actions-icons">
+											<img src="img/edit-icon.png" alt="edit" class="icons">
+										</a>
+										<a href="#" class="delete-row" data-original-title="Delete">
+											<img src="img/trash-icon.png" alt="trash">
+										</a>
+									</td> -->
+								</tr>
+								{{/each}}
+								
+							</tbody>
+						</table>
+						<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+
+		</div>
+	</div>
+</template>
