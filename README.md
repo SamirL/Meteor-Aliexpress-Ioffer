@@ -1,7 +1,5 @@
 # Meteor-Aliexpress-Ioffer
 Simple MVP for Aliexpress to Ioffer product export/dropshipping
-<<<<<<< HEAD
-=======
 
 Allows importing of products / Profit editing / Export to iOffer format
 
