@@ -84,7 +84,7 @@ Meteor.methods({
 			console.log('Image downloaded');
 		});
 
-		return 'http://ns328520.ip-37-187-114.eu/product_img/'+ filename;
+		return '/product_img/'+ filename;
 
 	},
 	removeDummy : function(){
